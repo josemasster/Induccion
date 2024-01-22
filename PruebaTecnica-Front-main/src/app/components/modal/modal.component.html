@@ -1,0 +1,43 @@
+<div class="modal" tabindex="-1" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{option}} usuario</h5>
+        </div>
+          <div class="modal-body">
+            <form [formGroup]="autoForm">
+              
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre Completo</label>
+                <input type="text"  class="form-control"  formControlName="nombre"   [ngClass]="{'is-invalid': !this.autoForm.controls['nombre'].valid}"  placeholder="Jose Guillermo Vargas Rodriguez" #NombreCompleto>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Numero de Documento</label>
+                <input type="number" class="form-control" [ngClass]="{'is-invalid': !this.autoForm.controls['documento'].valid}" formControlName="documento" #NumeroDocumento>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Direccion</label>
+                <input type="text" class="form-control" formControlName="direccion"  [ngClass]="{'is-invalid': !this.autoForm.controls['direccion'].valid}"  placeholder="cra 2-65" #Direccion>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Numero</label>
+                <input type="text" class="form-control" formControlName="numero" [ngClass]="{'is-invalid': !this.autoForm.controls['numero'].valid}" placeholder="3157382154">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': !this.autoForm.controls['email'].valid}" placeholder="fdafda@gmail.com" >
+              </div>
+            <div class="text-center">
+            </div>
+         
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+          <button type="button" class="btn btn-primary"  [disabled]="!autoForm.valid" 
+          (click)="CreateContactData(NombreCompleto.value, NumeroDocumento.value, Direccion.value)"
+          >Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

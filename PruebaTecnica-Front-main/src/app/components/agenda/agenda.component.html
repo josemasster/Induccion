@@ -1,0 +1,27 @@
+<div class="container mt-4 mb-">
+  <div class="card">
+    <div class="card-body">
+      <span class="h3">Agenda</span>
+      <button id="button" class="btn btn-dark btn-lg" (click)="showModal(1)">Agregar</button>
+      <div class="mt-4">
+        <div class="row">
+          <div class="col-4" *ngFor="let contact of dataactualized">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5>Identificador: {{ contact.Id }}</h5>
+                <p>Nombre: {{ contact.NombreCompleto }}:</p>
+                <p>Documento: {{ contact.NumeroDocumento }}</p>
+                <p>Dirección: {{ contact.Direccion }}</p>
+                <p>Fecha de Creación: {{ contact.FechaCreacion }}</p>
+                <button class="btn btn-primary btn-lg mr-2" (click)="showModal(2)">Actualizar</button>
+                <button class="btn btn-danger btn-lg" (click)="DeleteContactData(contact.Id)">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-modal #funcsModal ></app-modal>
